@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Midnight Spellbook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header__title">The Midnight Spellbook</h1>
+            <p class="header__subtitle">Your Supernatural Codex to Creation and Completion</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Left Sidebar - Invocation Chamber -->
+            <aside class="invocation-chamber">
+                <div class="chamber-header">
+                    <h2 class="chamber-title">Invocation Chamber</h2>
+                </div>
+                
+                <div class="chamber-content">
+                    <div class="selected-spell" id="selectedSpell">
+                        <p class="no-spell-message">Select a spell from the Grimoire to begin your mystical journey</p>
+                    </div>
+                    
+                    <div class="spell-invocation hidden" id="spellInvocation">
+                        <h3 class="spell-name" id="spellName"></h3>
+                        <p class="spell-description" id="spellDescription"></p>
+                        
+                        <div class="invocation-input">
+                            <label for="promptText" class="form-label">Incantation:</label>
+                            <textarea id="promptText" class="form-control spell-textarea" rows="6" placeholder="Your magical invocation will appear here..."></textarea>
+                        </div>
+                        
+                        <button class="btn btn--primary spell-invoke-btn" id="invokeBtn">
+                            <span class="btn-text">Invoke Spell</span>
+                            <span class="btn-loading hidden">
+                                <svg class="loading-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                                </svg>
+                                Casting...
+                            </span>
+                        </button>
+                        
+                        <div class="spell-results hidden" id="spellResults">
+                            <h4 class="results-title">Mystical Results</h4>
+                            <div class="results-content" id="resultsContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Main Area -->
+            <section class="main-content">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="grimoire">
+                        <svg class="tab-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                        Grimoire
+                    </button>
+                    <button class="tab-button" data-tab="scrying">
+                        <svg class="tab-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6"/>
+                            <path d="m21 12-6 0m-6 0-6 0"/>
+                        </svg>
+                        Scrying Pool
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Grimoire Tab -->
+                    <div class="tab-pane active" id="grimoire">
+                        <h2 class="tab-title">Spell Library</h2>
+                        <div class="spell-grid" id="spellGrid">
+                            <!-- Spell cards will be dynamically generated -->
+                        </div>
+                    </div>
+
+                    <!-- Scrying Pool Tab -->
+                    <div class="tab-pane" id="scrying">
+                        <h2 class="tab-title">Create New Spells</h2>
+                        <form class="spell-form" id="spellForm">
+                            <div class="form-group">
+                                <label for="newSpellName" class="form-label">Spell Name:</label>
+                                <input type="text" id="newSpellName" class="form-control" placeholder="Enter the name of your spell..." required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newSpellDescription" class="form-label">Description:</label>
+                                <textarea id="newSpellDescription" class="form-control" rows="3" placeholder="Describe the power and purpose of your spell..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newSpellInvocation" class="form-label">Invocation Phrase:</label>
+                                <textarea id="newSpellInvocation" class="form-control" rows="4" placeholder="Write the default incantation for your spell..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newSpellType" class="form-label">Spell Type:</label>
+                                <select id="newSpellType" class="form-control" required>
+                                    <option value="">Choose a spell type...</option>
+                                    <option value="search">Search</option>
+                                    <option value="summarize">Summarization</option>
+                                    <option value="prompt">General Prompting</option>
+                                    <option value="image">Image Generation</option>
+                                    <option value="code">Code Generation</option>
+                                    <option value="creative_writing">Creative Writing</option>
+                                    <option value="task_management">Task Management</option>
+                                    <option value="data_analysis">Data Analysis</option>
+                                    <option value="translation">Translation</option>
+                                    <option value="forecasting">Forecasting</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn--primary btn--full-width">
+                                Bind Spell to Grimoire
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
